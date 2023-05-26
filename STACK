@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+#define size 5
+class stack
+{
+  int top, stack[size];
+  public:
+   void init();
+   void push(int);
+   void pop();
+   void display();
+};
+void stack::init()
+{
+  top=-1;
+}
+void stack::push(int ele)
+{
+  if(top==size-1)
+  cout<<"\n Stack is full";
+  else
+  {
+    stack[++top]=ele;
+    cout<<"\n"<<ele<<"is inserted";
+  }
+}
+void stack::pop()
+{
+  if(top==-1)
+  cout<<"\n Stack is empty";
+  else 
+  cout<<"\n Element deleted is "<<stack[top--];
+}
+void stack::display()
+{
+  if(top==-1)
+  cout<<"\n Stack is empty";
+  else 
+  {
+    cout<<"The elements of the stack are";
+    for(int i=0; i<=top;i++)
+    cout<<"\t"<<stack[i];
+  }
+}
+int main()
+{
+  stack S;
+  cout<<"\n 1.Push"<<"\n2.Pop"<<"\n 3.Display"<<"\n 4.Exit";
+  S.init();
+  while(1)
+  {
+    int choice,ele;
+    cout<<"\n enter your choice: ";
+    cin>>choice;
+    switch(choice)
+    {
+      case 1:
+             cout<<"\n Enter the element to be inserted ";
+             cin>>ele;
+             S.push(ele);
+             break;
+      case 2:
+             S.pop();
+             break;
+      case 3:
+            S.display();
+            break;
+      case 4:
+            exit(0);
+            break;
+      default:
+             cout<<"\n Invalid option";      
+    }
+  }
+}
